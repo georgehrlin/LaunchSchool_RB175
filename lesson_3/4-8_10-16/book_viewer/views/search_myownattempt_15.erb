@@ -1,0 +1,8 @@
+<h2 class="content-subhead">Search</h2>
+
+<form action="/search" method="get">
+  <input name="query" value="<%= params[:query] %>">
+  <button type="submit">Search</button>
+</form>
+
+<%= format_search_result_chapters(@search_result_chapter_numbers, @contents) %>
