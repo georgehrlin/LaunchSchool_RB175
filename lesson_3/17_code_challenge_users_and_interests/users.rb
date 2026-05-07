@@ -3,18 +3,19 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'yaml'
 
-def total_number_of_all_users # Created for requirement #5
+def total_number_of_all_users
   @all_users_information.size
 end
 
-def total_number_of_all_interests # Created for requirement #5. Keeping original name instead of count_interests
+# Originally created for requirement #5. Keeping original name instead of count_interests
+def total_number_of_all_interests
   @all_users_information.map do |_, user_information|
     user_information[:interests]
   end.flatten.size
 end
 
 before do
-  @all_users_information = YAML.load_file("data/users.yaml")
+  @all_users_information = YAML.load_file('data/users.yaml')
 end
 
 helpers do
@@ -22,7 +23,7 @@ helpers do
     all_user_names = @all_users_information.keys
     all_user_names.map do |remaining_user_name|
       if remaining_user_name != @user_name.to_sym
-        %(<li><a href="/#{remaining_user_name.to_s}">#{remaining_user_name.to_s.capitalize}</a></li>)
+        %(<li><a href="/#{remaining_user_name}">#{remaining_user_name.to_s.capitalize}</a></li>)
       end
     end.join
   end
