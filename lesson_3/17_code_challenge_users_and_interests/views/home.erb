@@ -1,0 +1,6 @@
+<ul>
+  <% @all_users_information.each do |user_information| %>
+    <% user_name = user_information.first%>
+    <%= %(<li><a href="/#{user_name}">#{user_name.capitalize}</a></li>) %>
+  <% end %>
+</ul>

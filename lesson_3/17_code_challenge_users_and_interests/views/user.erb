@@ -1,0 +1,12 @@
+<header>
+  <h1><%= @user_name.capitalize %></h1>
+</header>
+<ul>
+  <li>Email: <address><a href="mailto:<%= @email %>"><%= @email %></a></address></li>
+  <li>Interests: <%= @interests %></li>
+</ul>
+
+<h2>Links to other users:</h2>
+<ul>
+  <%= generate_user_hyperlinks_as_list_items %>
+</ul>
